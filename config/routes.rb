@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  post '/questions', to: 'question#create'
+  get 'tags/show'
+  root to: 'users#index'
+
   resources :users
   resource :session, only: [:new, :create, :destroy]
-
-
+  resources :questions, except: [:show, :new, :index]
+  resources :tags, only: [:show], param: :name
 end

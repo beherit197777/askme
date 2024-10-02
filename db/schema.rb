@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_10_01_110056) do
+ActiveRecord::Schema.define(version: 2024_10_02_094012) do
+
+  create_table "question_tags", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "question_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_question_tags_on_question_id"
+    t.index ["tag_id"], name: "index_question_tags_on_tag_id"
+  end
 
   create_table "questions", force: :cascade do |t|
     t.text "body"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,4 +47,6 @@ ActiveRecord::Schema.define(version: 2024_10_01_110056) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "question_tags", "questions"
+  add_foreign_key "question_tags", "tags"
 end
