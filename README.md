@@ -2,13 +2,14 @@
 
 (similar to askfm app)
 
+Link to app https://askme-0511r5ms.b4a.run/
+
 **Description**
 
 This is a social networking app developed for learning purposes. You can create an account and ask and answer your friends' questions. Anonimous questions are also possible.
 
 **Requirements**
 
-***reCAPTCHA gem*** was used to minimize spam.
 
 > Ruby 3.3.5 
 > Rails  6.1.5
@@ -16,7 +17,7 @@ This is a social networking app developed for learning purposes. You can create 
 Database:
 
 > development: SQLite3 
-> production: PostgreSQL
+> production: SQLite3
 
 App language: *Russian*
 
