@@ -16,6 +16,9 @@ gem 'turbo-rails'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -25,6 +28,11 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'capistrano', '~> 3.16'
+  gem 'capistrano-rails', '~> 1.6'
+  gem 'capistrano-passenger', '~> 0.2.0' 
+  gem 'capistrano-bundler', '~> 1.6'
+  gem 'capistrano-rbenv', '~> 2.2'
 end
 
 group :test do
@@ -32,3 +40,4 @@ group :test do
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   gem 'webdrivers'
 end
+
