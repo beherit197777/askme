@@ -17,7 +17,7 @@ RUN bundle install
 COPY . .
 
 # Устанавливаем Webpacker и компилируем ассеты
-RUN bundle exec rake webpacker:install
+
 RUN bundle exec rake assets:precompile
 
 # Открываем порт 3000 для подключения
