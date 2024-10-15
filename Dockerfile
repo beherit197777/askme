@@ -29,5 +29,5 @@ RUN bundle exec rake assets:precompile
 # Открываем порт 3000 для подключения
 EXPOSE 3000
 
-# Запуск сервера
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# Запуск миграций и сервера
+CMD ["bash", "-c", "bin/rails db:migrate && bin/rails server -b 0.0.0.0"]
