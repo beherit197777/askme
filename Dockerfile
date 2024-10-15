@@ -19,8 +19,11 @@ RUN bundle install
 # Копируем все файлы приложения
 COPY . .
 
-# Устанавливаем Webpacker и компилируем ассеты
-RUN bundle exec rake webpacker:install
+# Устанавливаем JavaScript-зависимости и компилируем ассеты с помощью esbuild
+RUN yarn install
+RUN yarn build
+
+# Предкомпиляция ассетов (CSS, JS и другие)
 RUN bundle exec rake assets:precompile
 
 # Открываем порт 3000 для подключения
@@ -28,4 +31,3 @@ EXPOSE 3000
 
 # Запуск сервера
 CMD ["rails", "server", "-b", "0.0.0.0"]
-
